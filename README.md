@@ -51,11 +51,66 @@ Presentamos a **Chesco**, una implementación personalizada de la tecnología ge
 
 ---
 
-## 🛠️ Instalación y Despliegue Rápido
 
-Para correr este ecosistema en tu máquina local, sigue estos sencillos pasos:
+## ⚙️ Arquitectura del Pipeline y Flujo de Datos
 
-1. **Clona el repositorio:**
-   ```bash
-   git clone [https://github.com/tu-usuario/churn-hunters.git](https://github.com/tu-usuario/churn-hunters.git)
-   cd churn-hunters
+El proyecto sigue un proceso lineal y modular para transformar los datos crudos en insights accionables dentro de la plataforma interactiva. A continuación se detalla el ciclo de vida de los datos:
+
+┌─────────────────────────────────┐
+              │ 5 Archivos CSV Originales       │
+              │ (Clientes, Coolers, Train, etc) │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ 📊 EDA Maestro                  │
+              │ (Análisis y Gráficos Iniciales) │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ 🧠 Feature Engineering           │
+              │ (Creación de Nuevas Variables)  │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ 🚀 Entrenamiento del Modelo     │
+              │ (CatBoost con Train + Features) │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ ⚖️ Normalization                │
+              │ (Escalamiento y Procesamiento)  │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ 🛠️ Master Generator             │
+              │ (Concatenación de Resultados    │
+              │  Normalization + 4 CSVs libres) │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ 🖥️ Streamlit App                 │
+              │ (Visualización Final de Datos)  │
+              └────────────────┬────────────────┘
+                               │
+                               ▼
+              ┌─────────────────────────────────┐
+              │ 🥤 Agente Chatbot Gemini        │
+              │ (Asistente Consultor de Negocio)│
+              └─────────────────────────────────┘
+
+### 🕒 Detalle del Flujo Paso a Paso
+
+1. **Ingesta e Inspección (EDA Maestro):** Los 5 archivos CSV crudos entran al módulo de Análisis Exploratorio de Datos (EDA) maestro, donde se generan las analíticas descriptivas y los gráficos de comportamiento base.
+2. **Enriquecimiento (Feature Engineering):** Los datos pasan al procesador de ingeniería de variables, donde se calculan métricas de negocio agregadas y evolutivas por cliente.
+3. **Entrenamiento:** El modelo predictivo toma las variables resultantes y el set de entrenamiento (`sales_churn_train.csv`) para aprender los patrones de abandono.
+4. **Normalización (Normalization):** Los datos resultantes se estandarizan para asegurar estabilidad y homogeneidad en las salidas.
+5. **Consolidación (Master Generator):** La pieza clave de integración. Este script toma el archivo de salida de `resultados_normalization` y lo concatena de manera exacta con los 4 CSVs originales que no pasaron por la fase de predicción/normalización directa, construyendo la base de datos maestra unificada.
+6. **Despliegue e Interacción (Streamlit & Gemini):** La base unificada alimenta la aplicación de **Streamlit**, la cual renderiza la interfaz gráfica para el usuario y conecta directamente con el **Agente Personalizado de Gemini (CHESCO)** para permitir consultas interactivas con lenguaje natural.
+
+---
