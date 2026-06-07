@@ -110,3 +110,13 @@ graph LR
     style H fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 ---
+
+## 🚀 ¿Quieres ir directo a la acción? (Fast Track para Pruebas)
+
+Si quieres saltarte la ejecución del pipeline y probar la aplicación de **Streamlit** de inmediato, ya dejamos un archivo completamente preprocesado para ti. 
+
+1. Ve a la carpeta `tester/`.
+2. Utiliza el archivo `master_predictions_data.csv`.
+3. Inicia la aplicación apuntando a este archivo precalculado ¡y listo! Podrás explorar el dashboard y comenzar a interactuar con **Chesco** al instante.
+
+---
