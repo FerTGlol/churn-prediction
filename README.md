@@ -77,6 +77,7 @@ graph TD
 
     class G highlight;
     class H final;
+```
 
 ### 🕒 Detalle del Flujo Paso a Paso
 
