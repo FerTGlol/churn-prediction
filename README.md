@@ -1,4 +1,4 @@
-# 🥤 Churn Hunters: Salvando el Día (y los Clientes) en Arca Continental
+# 📊 Churn Hunters: Salvando el Día (y los Clientes) en Arca Continental
 
 ¡Bienvenido a **Churn Hunters**! 🎯 Un proyecto nacido con una misión clara: usar el poder del Machine Learning para predecir qué clientes están en riesgo de abandonar el barco (hacer *churn*) y automatizar estrategias de retención antes de que sea demasiado tarde. 
 
@@ -41,13 +41,13 @@ No queríamos que este modelo se quedara atrapado en un Jupyter Notebook aburrid
 * **Visualización Dinámica:** Explora el riesgo de churn segmentando por tamaño de cliente (`Mini`, `Pequeño`, `Mediano`, `Grande`, `Gigante`) o por territorio.
 * **Filtros a la Carta:** Analiza la relación entre tener más `coolers` o mayor volumen de cajas (`uni_boxes`) y la lealtad del cliente de forma interactiva.
 
-### 2. 🦎 CHESCO: Tu Asistente de Retención con IA (Gemini Core)
+### 2. 🥤 CHESCO: Tu Asistente de Retención con IA (Gemini Core)
 Presentamos a **Chesco**, una implementación personalizada de la tecnología generativa de **Gemini**, totalmente sintonizada con el contexto de Arca Continental y las reglas del reto.
 
-> 💬 *"¿Qué onda? Soy Chesco. Yo me leo toda la base de datos para que tú no tengas que hacerlo."*
+> 💬 *"¿Qué onda? Soy Chesco. Tengo acceso a toda la base de datos para que tú no tengas que hacer más que preguntarme."*
 
 * **Cero Tecnicismos:** Chesco traduce matrices complejas y probabilidades matemáticas a un lenguaje amigable, directo y de negocio.
-* **Estrategia a la Medida:** Al consultar un cliente en específico, Chesco evalúa su nivel de riesgo y te arroja una lista de **acciones de retención personalizadas** (ej. *"Oye, este cliente Grande bajó sus transacciones pero tiene 3 coolers libres, ofrécele una promoción de volumen antes de que lo perdamos"*).
+* **Estrategia a la Medida:** Al consultar un cliente en específico, Chesco evalúa su nivel de riesgo y te arroja una lista de **acciones de retención personalizadas** (ej. *"Noté que este cliente Grande bajó sus transacciones pero tiene 3 coolers libres, te recomiendo ofrecer una promoción de volumen para evitar su posible pérdida"*).
 
 ---
 
