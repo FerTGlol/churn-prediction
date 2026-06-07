@@ -56,53 +56,27 @@ Presentamos a **Chesco**, una implementación personalizada de la tecnología ge
 
 El proyecto sigue un proceso lineal y modular para transformar los datos crudos en insights accionables dentro de la plataforma interactiva. A continuación se detalla el ciclo de vida de los datos:
 
-┌─────────────────────────────────┐
-              │ 5 Archivos CSV Originales       │
-              │ (Clientes, Coolers, Train, etc) │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ 📊 EDA Maestro                  │
-              │ (Análisis y Gráficos Iniciales) │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ 🧠 Feature Engineering           │
-              │ (Creación de Nuevas Variables)  │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ 🚀 Entrenamiento del Modelo     │
-              │ (CatBoost con Train + Features) │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ ⚖️ Normalization                │
-              │ (Escalamiento y Procesamiento)  │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ 🛠️ Master Generator             │
-              │ (Concatenación de Resultados    │
-              │  Normalization + 4 CSVs libres) │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ 🖥️ Streamlit App                 │
-              │ (Visualización Final de Datos)  │
-              └────────────────┬────────────────┘
-                               │
-                               ▼
-              ┌─────────────────────────────────┐
-              │ 🥤 Agente Chatbot Gemini        │
-              │ (Asistente Consultor de Negocio)│
-              └─────────────────────────────────┘
+```mermaid
+graph TD
+    %% Configuración de estilos
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef highlight fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px;
+    classDef final fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+
+    A([5 CSVs Originales]) --> B[📊 EDA Maestro]
+    B --> C[🧠 Feature Engineering]
+    C --> D[🚀 Entrenamiento CatBoost]
+    D --> E[⚖️ Normalization]
+    E --> F[🛠️ Master Generator]
+    
+    %% Unión de los otros 4 archivos libres en el Master Generator
+    A -.->|Concatena los 4 CSVs restantes| F
+    
+    F --> G[🖥️ Streamlit App]
+    G --> H(🥤 Agente Chatbot Gemini)
+
+    class G highlight;
+    class H final;
 
 ### 🕒 Detalle del Flujo Paso a Paso
 
