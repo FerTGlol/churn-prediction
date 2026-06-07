@@ -9,3 +9,6 @@
 ### 📝 Notas importantes:
 * 🔗 En este link, encontrarás un archivo ZIP para descargar.
 * 📦 Al descomprimirlo, se abrirán los **5 CSVs** necesarios para este reto.
+
+> ### 💡 Recordatorio Importante
+> 📜 Si necesitas recordar los antecedentes del reto, descarga el archivo HTML **"contexto_reto"** y ejecútalo en tu navegador para revisar toda la información.
