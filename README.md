@@ -1,4 +1,4 @@
-# 🥤 Churn Hunters: Salvando el Día (y los Clientes) en Arca Continental 🥤
+# 🥤 Churn Hunters: Salvando el Día (y los Clientes) en Arca Continental
 
 ¡Bienvenido a **Churn Hunters**! 🎯 Un proyecto nacido con una misión clara: usar el poder del Machine Learning para predecir qué clientes están en riesgo de abandonar el barco (hacer *churn*) y automatizar estrategias de retención antes de que sea demasiado tarde. 
 
