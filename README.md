@@ -89,3 +89,24 @@ graph TD
 6. **Despliegue e Interacción (Streamlit & Gemini):** La base unificada alimenta la aplicación de **Streamlit**, la cual renderiza la interfaz gráfica para el usuario y conecta directamente con el **Agente Personalizado de Gemini (CHESCO)** para permitir consultas interactivas con lenguaje natural.
 
 ---
+
+## ⚡ El Atajo Rápido: Pipeline de un Solo Clic (`pipeline_churn.py`)
+
+Para hacer el despliegue lo más eficiente posible, consolidamos todos los scripts y pasos intermedios del pipeline en un único archivo maestro: `pipeline_churn.py`. 
+
+Este script actúa como el director de orquesta del proyecto. Al ejecutarlo, realiza de forma secuencial y automatizada todo el ciclo de vida de los datos:
+
+```mermaid
+graph LR
+    A[Ejecutar pipeline_churn.py] --> B[1. Carga 5 CSVs]
+    B --> C[2. Procesa EDA & Features]
+    C --> D[3. Entrena e Infiere]
+    D --> E[4. Normaliza & Consolida]
+    E --> F([💾 Genera: Master Dataset])
+    F --> G[🖥️ Carga directa en Streamlit]
+    G --> H(🥤 ¡Listo para hablar con Chesco!)
+
+    style F fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style H fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+```
+---
